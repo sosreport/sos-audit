@@ -1,0 +1,30 @@
+.TH "SOS-AUDIT.SH" "8" "SOS #VERSION#" "Red Hat, Inc" "\""
+
+.SH "NAME"
+sos-audit.sh \(em Configure audit files to track the use commands capable of changing system state
+.SH "SYNOPSIS"
+.B sos-audit.sh
+.RB [ -h ]
+.RB [ -v ]
+.RB [ -V ]
+
+.SH "DESCRIPTION"
+sos-audit.sh is a script that reads \fB/etc/sys/sos-audit.conf\fP(5)
+and enables or disables audit rules linked into /etc/audit/rules.d.
+
+.SH "OPTIONS"
+.TP
+.BR -h
+Help.
+.TP
+.BR -v
+Verbose.
+.TP
+.BR -V
+Display version.
+
+.SH FILES
+.I /etc/sos/sos-audit.conf
+
+.SH "SEE ALSO"
+.BR sos-audit.conf (5)

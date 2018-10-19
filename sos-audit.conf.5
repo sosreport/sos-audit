@@ -1,0 +1,34 @@
+.TH "sos-audit.conf" "5" "SOSREPORT" "sos-audit configuration file"
+.SH NAME
+sos-audit.conf \- sos-audit configuration
+.SH DESCRIPTION
+.sp
+sos-audit uses a configuration file at /etc/sos/sos-audit.conf.
+.SH PARAMETERS
+.sp
+The format of the configuration file is as follows
+\fBname = [0|1]\fP, where \fBname\fP is the name of a subsystem
+with audit rules configured by \fBsos-audit.sh\fP(8).  The subsystems
+currently defined are:
+.br
+storage
+.br
+filesystem
+
+.TP
+.SH EXAMPLES
+.LP
+.br
+To disable 'storage' rules and enable 'filesystem' rules:
+.LP
+.br
+storage=0
+.br
+filesystem=1
+.sp
+.SH FILES
+.sp
+/etc/sos/sos-audit.conf
+.SH SEE ALSO
+.sp
+sos-audit.sh(1)

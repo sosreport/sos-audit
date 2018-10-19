@@ -1,0 +1,66 @@
+## /usr/lib/sos/audit/rules.d/40-sos-filesystem.rules: Filesystem related audit rules that change system state.
+## The audit rules monitor both executable as well as configuration file modification.
+## The executable and configuration files are from the following RPMs: xfsprogs e2fsprogs nfs-utils cifs-utils 
+# xfsprogs
+-w /usr/sbin/fsck.xfs -p x -k filesystem_changes -k xfsprogs
+-w /usr/sbin/mkfs.xfs -p x -k filesystem_changes -k xfsprogs
+-w /usr/sbin/xfs_admin -p x -k filesystem_changes -k xfsprogs
+-w /usr/sbin/xfs_copy -p x -k filesystem_changes -k xfsprogs
+-w /usr/sbin/xfs_db -p x -k filesystem_changes -k xfsprogs
+-w /usr/sbin/xfs_freeze -p x -k filesystem_changes -k xfsprogs
+-w /usr/sbin/xfs_fsr -p x -k filesystem_changes -k xfsprogs
+-w /usr/sbin/xfs_growfs -p x -k filesystem_changes -k xfsprogs
+-w /usr/sbin/xfs_io -p x -k filesystem_changes -k xfsprogs
+-w /usr/sbin/xfs_mdrestore -p x -k filesystem_changes -k xfsprogs
+-w /usr/sbin/xfs_metadump -p x -k filesystem_changes -k xfsprogs
+-w /usr/sbin/xfs_mkfile -p x -k filesystem_changes -k xfsprogs
+-w /usr/sbin/xfs_ncheck -p x -k filesystem_changes -k xfsprogs
+-w /usr/sbin/xfs_quota -p x -k filesystem_changes -k xfsprogs
+-w /usr/sbin/xfs_repair -p x -k filesystem_changes -k xfsprogs
+-w /usr/sbin/xfs_rtcp -p x -k filesystem_changes -k xfsprogs
+-w /usr/sbin/xfs_scrub -p x -k filesystem_changes -k xfsprogs
+-w /usr/sbin/xfs_scrub_all -p x -k filesystem_changes -k xfsprogs
+-w /usr/sbin/xfs_spaceman -p x -k filesystem_changes -k xfsprogs
+# e2fsprogs
+-w /usr/bin/chattr -p x -k filesystem_changes -k e2fsprogs
+-w /usr/sbin/badblocks -p x -k filesystem_changes -k e2fsprogs
+-w /usr/sbin/debugfs -p x -k filesystem_changes -k e2fsprogs
+-w /usr/sbin/e2freefrag -p x -k filesystem_changes -k e2fsprogs
+-w /usr/sbin/e2fsck -p x -k filesystem_changes -k e2fsprogs
+-w /usr/sbin/e2image -p x -k filesystem_changes -k e2fsprogs
+-w /usr/sbin/e2label -p x -k filesystem_changes -k e2fsprogs
+-w /usr/sbin/e2undo -p x -k filesystem_changes -k e2fsprogs
+-w /usr/sbin/e4crypt -p x -k filesystem_changes -k e2fsprogs
+-w /usr/sbin/e4defrag -p x -k filesystem_changes -k e2fsprogs
+-w /usr/sbin/fsck.ext2 -p x -k filesystem_changes -k e2fsprogs
+-w /usr/sbin/fsck.ext3 -p x -k filesystem_changes -k e2fsprogs
+-w /usr/sbin/fsck.ext4 -p x -k filesystem_changes -k e2fsprogs
+-w /usr/sbin/fuse2fs -p x -k filesystem_changes -k e2fsprogs
+-w /usr/sbin/mke2fs -p x -k filesystem_changes -k e2fsprogs
+-w /usr/sbin/mkfs.ext2 -p x -k filesystem_changes -k e2fsprogs
+-w /usr/sbin/mkfs.ext3 -p x -k filesystem_changes -k e2fsprogs
+-w /usr/sbin/mkfs.ext4 -p x -k filesystem_changes -k e2fsprogs
+-w /usr/sbin/mklost+found -p x -k filesystem_changes -k e2fsprogs
+-w /usr/sbin/resize2fs -p x -k filesystem_changes -k e2fsprogs
+-w /usr/sbin/tune2fs -p x -k filesystem_changes -k e2fsprogs
+-w /etc/e2fsck.conf -p wa -k filesystem_changes
+-w /etc/mke2fs.conf -p wa -k filesystem_changes
+# nfs-utils
+-w /sbin/mount.nfs -p x -k filesystem_changes -k nfs-utils
+-w /sbin/mount.nfs4 -p x -k filesystem_changes -k nfs-utils
+-w /sbin/umount.nfs -p x -k filesystem_changes -k nfs-utils
+-w /sbin/umount.nfs4 -p x -k filesystem_changes -k nfs-utils
+-w /usr/sbin/exportfs -p x -k filesystem_changes -k nfs-utils
+-w /usr/sbin/nfsconf -p x -k filesystem_changes -k nfs-utils
+-w /usr/sbin/rpcdebug -p x -k filesystem_changes -k nfs-utils
+-w /etc/gssproxy/24-nfs-server.conf -p wa -k filesystem_changes
+-w /etc/modprobe.d/lockd.conf -p wa -k filesystem_changes
+-w /etc/nfs.conf -p wa -k filesystem_changes
+-w /etc/nfsmount.conf -p wa -k filesystem_changes
+-w /etc/request-key.d/id_resolver.conf -p wa -k filesystem_changes
+# cifs-utils
+-w /usr/bin/cifscreds -p x -k filesystem_changes -k cifs-utils
+-w /usr/bin/setcifsacl -p x -k filesystem_changes -k cifs-utils
+-w /usr/sbin/mount.cifs -p x -k filesystem_changes -k cifs-utils
+-w /etc/request-key.d/cifs.idmap.conf -p wa -k filesystem_changes
+-w /etc/request-key.d/cifs.spnego.conf -p wa -k filesystem_changes

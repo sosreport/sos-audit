@@ -1,0 +1,72 @@
+## /usr/lib/sos/audit/rules.d/40-sos-storage.rules: Storage related audit rules that change system state.
+## The audit rules monitor both executable as well as configuration file modification.
+## The executable and configuration files are from the following RPMs: lvm2 device-mapper-multipath parted mdadm fcoe-utils iscsi-initiator-utils vdo 
+# lvm2
+-w /usr/sbin/fsadm -p x -k storage_changes -k lvm2
+-w /usr/sbin/lvchange -p x -k storage_changes -k lvm2
+-w /usr/sbin/lvconvert -p x -k storage_changes -k lvm2
+-w /usr/sbin/lvcreate -p x -k storage_changes -k lvm2
+-w /usr/sbin/lvextend -p x -k storage_changes -k lvm2
+-w /usr/sbin/lvm -p x -k storage_changes -k lvm2
+-w /usr/sbin/lvmconf -p x -k storage_changes -k lvm2
+-w /usr/sbin/lvmconfig -p x -k storage_changes -k lvm2
+-w /usr/sbin/lvmdump -p x -k storage_changes -k lvm2
+-w /usr/sbin/lvreduce -p x -k storage_changes -k lvm2
+-w /usr/sbin/lvremove -p x -k storage_changes -k lvm2
+-w /usr/sbin/lvrename -p x -k storage_changes -k lvm2
+-w /usr/sbin/lvresize -p x -k storage_changes -k lvm2
+-w /usr/sbin/pvchange -p x -k storage_changes -k lvm2
+-w /usr/sbin/pvck -p x -k storage_changes -k lvm2
+-w /usr/sbin/pvcreate -p x -k storage_changes -k lvm2
+-w /usr/sbin/pvmove -p x -k storage_changes -k lvm2
+-w /usr/sbin/pvremove -p x -k storage_changes -k lvm2
+-w /usr/sbin/pvresize -p x -k storage_changes -k lvm2
+-w /usr/sbin/vgcfgbackup -p x -k storage_changes -k lvm2
+-w /usr/sbin/vgcfgrestore -p x -k storage_changes -k lvm2
+-w /usr/sbin/vgchange -p x -k storage_changes -k lvm2
+-w /usr/sbin/vgck -p x -k storage_changes -k lvm2
+-w /usr/sbin/vgconvert -p x -k storage_changes -k lvm2
+-w /usr/sbin/vgcreate -p x -k storage_changes -k lvm2
+-w /usr/sbin/vgexport -p x -k storage_changes -k lvm2
+-w /usr/sbin/vgextend -p x -k storage_changes -k lvm2
+-w /usr/sbin/vgimport -p x -k storage_changes -k lvm2
+-w /usr/sbin/vgimportclone -p x -k storage_changes -k lvm2
+-w /usr/sbin/vgmerge -p x -k storage_changes -k lvm2
+-w /usr/sbin/vgmknodes -p x -k storage_changes -k lvm2
+-w /usr/sbin/vgreduce -p x -k storage_changes -k lvm2
+-w /usr/sbin/vgremove -p x -k storage_changes -k lvm2
+-w /usr/sbin/vgrename -p x -k storage_changes -k lvm2
+-w /usr/sbin/vgsplit -p x -k storage_changes -k lvm2
+-w /etc/lvm/lvm.conf -p wa -k storage_changes
+-w /etc/lvm/lvmlocal.conf -p wa -k storage_changes
+-w /usr/lib/tmpfiles.d/lvm2.conf -p wa -k storage_changes
+# device-mapper-multipath
+-w /usr/sbin/mpathconf -p x -k storage_changes -k device-mapper-multipath
+-w /usr/sbin/mpathpersist -p x -k storage_changes -k device-mapper-multipath
+-w /usr/sbin/multipath -p x -k storage_changes -k device-mapper-multipath
+-w /usr/share/doc/device-mapper-multipath/multipath.conf -p wa -k storage_changes
+# parted
+-w /sbin/parted -p x -k storage_changes -k parted
+-w /sbin/partprobe -p x -k storage_changes -k parted
+# mdadm
+-w /usr/sbin/mdadm -p x -k storage_changes -k mdadm
+-w /etc/libreport/events.d/mdadm_event.conf -p wa -k storage_changes
+-w /usr/lib/tmpfiles.d/mdadm.conf -p wa -k storage_changes
+# fcoe-utils
+-w /usr/sbin/fcnsq -p x -k storage_changes -k fcoe-utils
+-w /usr/sbin/fcoeadm -p x -k storage_changes -k fcoe-utils
+# iscsi-initiator-utils
+-w /usr/sbin/iscsiadm -p x -k storage_changes -k iscsi-initiator-utils
+-w /etc/iscsi/iscsid.conf -p wa -k storage_changes
+-w /usr/lib/tmpfiles.d/iscsi.conf -p wa -k storage_changes
+# vdo
+-w /usr/bin/vdo -p x -k storage_changes -k vdo
+-w /usr/bin/vdoforcerebuild -p x -k storage_changes -k vdo
+-w /usr/bin/vdoformat -p x -k storage_changes -k vdo
+-w /usr/bin/vdoprepareupgrade -p x -k storage_changes -k vdo
+# Miscellaneous (util-linux)
+-w /usr/sbin/fdisk -p x -k storage_changes -k util-linux
+-w /usr/sbin/cfdisk -p x -k storage_changes -k util-linux
+-w /usr/sbin/sfdisk -p x -k storage_changes -k util-linux
+-w /usr/sbin/wipefs -p x -k storage_changes -k util-linux
+-w /usr/sbin/fstrim -p x -k storage_changes -k util-linux
