@@ -1,7 +1,5 @@
 #!/bin/bash
 #
-# Tested on: RHEL8 alpha
-#
 # This script can be used as a starting point to help generate the storage-changes.rules file.
 # NOTE: Some 'bin' and 'conf' files probably should not be included in the rules.
 #

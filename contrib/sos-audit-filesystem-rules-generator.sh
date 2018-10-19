@@ -1,9 +1,5 @@
 #!/bin/bash
 #
-# Tested on: RHEL8 alpha
-#
-# NOTE: Not intended to be shipped but used in packaging / building
-#
 # This script can be used as a starting point to help generate the filesystem-changes.rules audit file.
 # NOTE: Some 'bin' and 'conf' files probably should not be included in the rules.
 #
